@@ -4,6 +4,7 @@
  */
 package controller;
 
+import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -55,7 +56,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("login.html").forward(request, response);
     }
 
     /**
@@ -69,11 +70,39 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String username = request.getParameter("user");
-        String password = request.getParameter("pass");
-        if(username.equals(this.getInitParameter("username")) && password.equals(this.getInitParameter("password"))){
-            response.getWriter().println("Login successful!");
-        } else response.getWriter().println("Login fail!");
+          PrintWriter out = response.getWriter();
+         out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            ServletContext sc = getServletContext(); //lay ra doi tuong ServletContext
+            String u = sc.getInitParameter("username");
+            String p = sc.getInitParameter("passwd");
+            String user = request.getParameter("username");
+            String pass = request.getParameter("passwd");
+//            ServletContext Interface :
+//            - Mot doi tuong servletContext dc tao boi web container tai thoi diem trien khai du an.
+//            -Doi tuong nay co the dc su dung de lay thong tin tu web.sml file. 
+//            -Chi mot doi tuong ServletContext cho moi ung dung web.
+//            
+
+//              Advantage of ServletContext:
+//                 -  Easy to maintain
+
+//                Method of ServletContext: 
+//                    - getInitParameter(String name) : return the parameter value for the specified parameter name
+                      
+            if(user.equalsIgnoreCase(u) && pass.equals(p)){
+                out.println("<h2>"+"Login Successful"+"</h2>");
+            }else{
+                request.getRequestDispatcher("login.html").forward(request, response);
+            }
+            
+            
+            out.println("</body>");
+            out.println("</html>");
         
     }
 

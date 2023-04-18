@@ -4,11 +4,11 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>controller.LoginServlet</servlet-class>
         <init-param>
-            <param-name>abc</param-name>
-            <param-value>12345</param-value>
+            <param-name>username</param-name>
+            <param-value>abc</param-value>
         </init-param>
         <init-param>
-            <param-name>hienvm</param-name>
+            <param-name>password</param-name>
             <param-value>12345</param-value>
         </init-param>
     </servlet>
