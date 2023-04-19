@@ -25,16 +25,7 @@ public class Student {
         
     }
 
-    public Student(String student_id, String firstname, String middlename, String lastname, Date dob, boolean gender, int account_id) {
-        this.student_id = student_id;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.dob = dob;
-        this.gender = gender;
-        this.account_id = account_id;
-    }
-
+ 
     public String getStudent_id() {
         return student_id;
     }
