@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author HP
@@ -11,19 +13,11 @@ package model;
 public class Student {
     private int sid;
     private String sname ;
-    private String gender ;
-    private String dob;
+    private boolean gender ;
+    private  Date date ;
     private int did ;
 
     public Student() {
-    }
-
-    public Student(int sid, String sname, String gender, String dob, int did) {
-        this.sid = sid;
-        this.sname = sname;
-        this.gender = gender;
-        this.dob = dob;
-        this.did = did;
     }
 
     public int getSid() {
@@ -42,20 +36,20 @@ public class Student {
         this.sname = sname;
     }
 
-    public String getGender() {
+    public boolean isGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 
-    public String getDob() {
-        return dob;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDob(String dob) {
-        this.dob = dob;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public int getDid() {
@@ -66,4 +60,5 @@ public class Student {
         this.did = did;
     }
     
+
 }
